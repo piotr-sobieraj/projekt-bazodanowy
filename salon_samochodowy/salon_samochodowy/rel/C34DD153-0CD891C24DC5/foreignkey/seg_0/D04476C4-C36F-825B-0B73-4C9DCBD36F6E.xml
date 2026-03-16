@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="D04476C4-C36F-825B-0B73-4C9DCBD36F6E" containerWithKeyObject="43EB531A-8B9D-6373-31D5-A5B0CB8AB7A4" localFKIndex="4C931406-857C-A686-CDA8-F1100F10C270" name="Faktura_Transakcja_FK">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>0CEF3BB9-4A0F-8401-3E08-D82938FBDD9B</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<referredTableLongName>Transakcja</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>95D3081D-7198-ACB3-CD1F-5303182A21F8</referredTableID>
+<keyObject>A11B805C-B7EA-1330-5E44-5EDC0D6885C4</keyObject>
+<referredKeyID>A11B805C-B7EA-1330-5E44-5EDC0D6885C4</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>Transakcja_ID</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

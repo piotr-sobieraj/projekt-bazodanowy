@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="4FD2EF95-48AA-C1E7-EF10-538CC87652DC" containerWithKeyObject="95D3081D-7198-ACB3-CD1F-5303182A21F8" localFKIndex="549E3F10-6375-A87A-06B4-5B785EBA4651" name="Transakcja_Oferta_FK">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>D207DFCA-2BD3-596C-25CF-F094EF1A7E46</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<referredTableLongName>Oferta</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>CFB7FE9A-B050-A99B-EBDD-B4F69CB4D074</referredTableID>
+<keyObject>77C7BE6B-8FBE-D3F6-861F-2B55935B985B</keyObject>
+<referredKeyID>77C7BE6B-8FBE-D3F6-861F-2B55935B985B</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_faktura,id_towar</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

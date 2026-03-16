@@ -1,0 +1,63 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="7C82A9D8-47F1-B8A6-F405-675B69EF9925" name="Transakcja">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:23:09 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_faktura" id="19842522-55D1-699D-04FB-621CC4FEC262">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:23:21 UTC</createdTime>
+<generatorID>D207DFCA-2BD3-596C-25CF-F094EF1A7E46</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<referedAttribute>E57563BB-7667-1F60-4CD3-7C5B4ECF84C3</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_towar" id="32DA163C-ABBF-790A-B21C-4B69F38DB7E6">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:23:21 UTC</createdTime>
+<generatorID>D207DFCA-2BD3-596C-25CF-F094EF1A7E46</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<referedAttribute>9764B84A-06BF-A963-C8D9-6EA4C6A00384</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Data" id="2E5CB108-3454-08E9-FE37-104D5AA8FE05">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:59:26 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+</Entity>

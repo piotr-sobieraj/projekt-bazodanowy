@@ -1,0 +1,110 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="4E954E6B-41D4-56AB-79C8-D41A6405F38E" name="Samochód">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>60614F7F-9B05-CC72-3EF7-F6FC52E7D2CC</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ID_Samochód" id="180A8900-57E8-FF3C-B916-2BD8544CAFE2">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>2518DD38-4382-7DE9-C245-056323AAF94E</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Model" id="FBDA3CF5-18AA-4036-1022-FEFF2C325EAD">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>7C2A11C0-8018-8869-BFEE-FFCB23227262</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Wersja" id="982CF8EB-75C7-7A9F-9790-9BB26D60AAD0">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>4A18384F-E69E-6E64-5072-78AD68AE0366</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Cena" id="C9F2704C-8863-BE32-6868-9546C68C7B0A">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>E81F0729-BF20-AA08-C220-BAD50A6D1819</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT043</logicalDatatype>
+<dataTypePrecision>2</dataTypePrecision>
+<ownDataTypeParameters>,2,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Rok_Produkcji" id="3144490D-573D-10CF-3107-39F755939A50">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>57FEB37C-7A6A-BC8B-DA58-B2B91671B141</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT018</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Katalog_ID_Katalog" id="7C6295F8-3DEA-F306-8440-1B278004DADF">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>06D8CB9A-7976-5B04-9DA6-7AE1D6DE50BC</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6223ED0B-58F4-28DA-EF14-5A8852872416" referredColumn="C3B801DA-1EE8-C2E1-EF8E-BB6D85B66CA9"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="B9294D2F-3CAD-FE22-CA80-4C93832DF048" name="Samochód_PK">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>6974FEE6-52AB-F85A-C6C0-9D2B4893AD33</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="180A8900-57E8-FF3C-B916-2BD8544CAFE2"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="9499521E-0FC2-8BA9-3D22-D2D660A32506" name="Samochód_Katalog_FK">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>1C971F31-DF8E-AF7B-418F-625E912B1FD3</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="7C6295F8-3DEA-F306-8440-1B278004DADF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

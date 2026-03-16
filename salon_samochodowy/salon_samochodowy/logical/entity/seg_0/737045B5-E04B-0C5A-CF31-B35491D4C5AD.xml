@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="737045B5-E04B-0C5A-CF31-B35491D4C5AD" name="Katalog">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:09:03 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ID_Katalog" id="EE7D97FA-D8F7-8C7B-75FA-9934832471F7">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:09:12 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Typ_Kliienta" id="D8F894A8-C625-F4AD-953B-73CB34B7B356">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:15:04 UTC</createdTime>
+<commentInRDBMS><![CDATA[Indywidualny lub Biznesowy]]></commentInRDBMS>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_Salon" id="005B47C9-FE1A-5C1A-0E0D-48E693DB48D4">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:16:47 UTC</createdTime>
+<generatorID>9AF2FA65-9A1A-20EB-51E8-F921B28F1844</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<referedAttribute>DF99DF84-65AC-79AD-BB5B-B6F4BF98924E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="AB78ACF8-D7D3-0E73-AB70-5BD448B3194A" name="Katalog PK">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:09:28 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>EE7D97FA-D8F7-8C7B-75FA-9934832471F7</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

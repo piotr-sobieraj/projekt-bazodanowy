@@ -1,0 +1,106 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="95D3081D-7198-ACB3-CD1F-5303182A21F8" name="Transakcja">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>7C82A9D8-47F1-B8A6-F405-675B69EF9925</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="Oferta_id_faktura" id="A94DD980-A109-BB18-F3CD-FF33EBB51D6C">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>19842522-55D1-699D-04FB-621CC4FEC262</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4FD2EF95-48AA-C1E7-EF10-538CC87652DC" referredColumn="0A67DE11-913D-BED8-D06D-AA48CBA2EA6A"/>
+</associations>
+</Column>
+<Column name="Oferta_id_towar" id="ECD7C4A1-41E4-37AA-B1B4-917A0926F0DF">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>32DA163C-ABBF-790A-B21C-4B69F38DB7E6</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="4FD2EF95-48AA-C1E7-EF10-538CC87652DC" referredColumn="47B017CE-1CA0-C277-7A1B-7FBDAE968DCC"/>
+</associations>
+</Column>
+<Column name="Transakcja_ID" id="12BBF730-6A18-7904-0333-13137EF0E0C4">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementColumn>true</autoIncrementColumn>
+<identityColumn>true</identityColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<isSurrogateColumn>true</isSurrogateColumn>
+</Column>
+<Column name="Data" id="6C3F5E67-29F0-5BEF-86B1-1E6DEB850E89">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 16:01:14 UTC</createdTime>
+<generatorID>2E5CB108-3454-08E9-FE37-104D5AA8FE05</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A11B805C-B7EA-1330-5E44-5EDC0D6885C4" name="Transakcja_PK">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<indexColumnUsage>
+<colUsage columnID="12BBF730-6A18-7904-0333-13137EF0E0C4"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B36A4F4B-99CA-5D97-8D0D-75027995F77F" name="Transakcja__IDX">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>D207DFCA-2BD3-596C-25CF-F094EF1A7E46</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="A94DD980-A109-BB18-F3CD-FF33EBB51D6C"/>
+<colUsage columnID="ECD7C4A1-41E4-37AA-B1B4-917A0926F0DF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="549E3F10-6375-A87A-06B4-5B785EBA4651" name="Transakcja_Oferta_FK">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>D207DFCA-2BD3-596C-25CF-F094EF1A7E46</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A94DD980-A109-BB18-F3CD-FF33EBB51D6C"/>
+<colUsage columnID="ECD7C4A1-41E4-37AA-B1B4-917A0926F0DF"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

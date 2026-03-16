@@ -1,0 +1,105 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="4BEAAB2F-4F53-F449-6A97-222A29C9B7A3" name="Faktura">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:17:47 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_faktura" id="DE1B5003-A76E-A30A-053F-8FFCE83CC132">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:17:47 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>4B3A3F6A-736D-0BE2-2B7E-40C140AD0A29</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="numer" id="0F7872A5-6AD0-9DC8-A8F1-C16E8B4476C3">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:17:47 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>166D0561-AEBD-651B-D4A4-62D3D36C8A22</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="data" id="11498097-7759-96D8-9DC2-49FE82EA4DF0">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:17:47 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>B5C99D5F-94F1-AB02-BDEA-2C8E8467BE81</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_klient" id="ACFFF414-5E8D-2DF8-2BD1-4ECB09B0AA9A">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:17:47 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>730F80AC-9741-C5B0-EF64-3CD7107D0AB8</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_sprzedawca" id="467F95C3-5703-5AE2-B3C3-0DFDE42254F2">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:17:47 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>93BC92EB-D5DF-97B9-9667-F7C09B2FD0A4</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="8A4FA539-51E7-4BEE-7DA7-837A05CC75F5" name="Faktura_PK">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:17:47 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>DE1B5003-A76E-A30A-053F-8FFCE83CC132</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

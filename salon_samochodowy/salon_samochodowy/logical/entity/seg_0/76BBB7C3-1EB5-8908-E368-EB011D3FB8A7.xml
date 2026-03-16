@@ -1,0 +1,170 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="76BBB7C3-1EB5-8908-E368-EB011D3FB8A7" name="Oferta">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:19:51 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="ilosc" id="7388CFF2-5F65-CE60-9E9A-07021AA7F1BC">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:19:51 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>C3275A18-B807-7C6E-140C-0D6D804D5070</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>6</dataTypePrecision>
+<dataTypeScale>3</dataTypeScale>
+<ownDataTypeParameters>,6,3</ownDataTypeParameters>
+</Attribute>
+<Attribute name="cena" id="3DE2203E-99F0-C05A-1F71-444E3E7C37D4">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:19:51 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>7B6BDA40-C12D-00E4-41B0-1D041324DE63</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>2</dataTypeScale>
+<ownDataTypeParameters>,8,2</ownDataTypeParameters>
+</Attribute>
+<Attribute name="vat" id="B2999A65-1C99-3C76-722C-C1969844FA45">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:19:51 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>F56EA276-66E9-D78F-CEDB-732BDFC9F8D1</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>1</dataTypeScale>
+<ownDataTypeParameters>,3,1</ownDataTypeParameters>
+</Attribute>
+<Attribute name="rabat" id="DC46BF9A-3044-3D7F-A6FF-77D3986F5F89">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:19:51 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>281F54BE-EA59-D75C-5CAD-BB72CF122D98</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>1</dataTypeScale>
+<ownDataTypeParameters>,3,1</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_faktura" id="E57563BB-7667-1F60-4CD3-7C5B4ECF84C3">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:19:51 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>2D80CE99-7F67-ED23-19BA-A687329FB5FD</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_towar" id="9764B84A-06BF-A963-C8D9-6EA4C6A00384">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:19:51 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>E50D6B0A-FA5E-7E96-C2E2-3559736B2FD4</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_Samochód" id="1A20A49F-2C82-FD40-044B-3B3580C198B8">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:21:52 UTC</createdTime>
+<generatorID>019691E5-360A-ED68-CBF8-79EDBE06B761</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<referedAttribute>2518DD38-4382-7DE9-C245-056323AAF94E</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_klient" id="927C12DC-8963-AD18-86FE-9F00300E2F2D">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:22:15 UTC</createdTime>
+<generatorID>5A6F410B-B768-234C-774D-8ECF6978E2BD</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<referedAttribute>CDE6960E-9E00-55C4-684C-AD6330AE16D1</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="ID_Sprzedawca" id="C5BFA17B-1066-8A0D-A30B-B2B72AFBA5C3">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:25:48 UTC</createdTime>
+<generatorID>550C510C-D6DA-D151-F249-B7D457927695</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<referedAttribute>BA428C2F-F6A4-CA2E-6088-4785AE1F2C6D</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="7634AC65-2E6F-26A8-3732-61E90E5BD2F2" name="PK_Pozycja">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:19:51 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>E57563BB-7667-1F60-4CD3-7C5B4ECF84C3</attributeRef>
+<attributeRef>9764B84A-06BF-A963-C8D9-6EA4C6A00384</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

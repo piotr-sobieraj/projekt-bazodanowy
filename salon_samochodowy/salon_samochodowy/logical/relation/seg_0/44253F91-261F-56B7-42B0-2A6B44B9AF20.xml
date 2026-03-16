@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Sprzedawca Pracuje W Salonie " directorySegmentName="seg_0" id="44253F91-261F-56B7-42B0-2A6B44B9AF20">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:03:25 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<sourcePk>B03F0731-0698-E62B-21BA-693B8C6D5A8F</sourcePk>
+<targetPk>138F6932-9B14-6E23-1281-C70C8FCE1635</targetPk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>7DD1A323-5779-9DE4-7EB5-FD2C9E8F5B2F</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>319DAC7D-4404-169E-6063-C3A2FD961CDF</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

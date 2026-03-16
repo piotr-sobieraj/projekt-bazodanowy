@@ -1,0 +1,124 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="43EB531A-8B9D-6373-31D5-A5B0CB8AB7A4" name="Faktura">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>4BEAAB2F-4F53-F449-6A97-222A29C9B7A3</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_faktura" id="751BBB09-FBB4-621B-8AB3-63E0D05F4B81">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>DE1B5003-A76E-A30A-053F-8FFCE83CC132</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="numer" id="00964727-8F1A-7089-662B-A2F02708ACF5">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>0F7872A5-6AD0-9DC8-A8F1-C16E8B4476C3</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>20</dataTypeSize>
+<ownDataTypeParameters>20,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="data" id="B93B9903-1C30-AE8A-425C-FE774E6455FA">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>11498097-7759-96D8-9DC2-49FE82EA4DF0</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_klient" id="915127B6-A7FB-F295-C54F-F7D10D9EB9E3">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>ACFFF414-5E8D-2DF8-2BD1-4ECB09B0AA9A</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_sprzedawca" id="24610E5E-94BB-0E71-E1C4-5B8ABD95C612">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>467F95C3-5703-5AE2-B3C3-0DFDE42254F2</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>4</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,4,0</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Transakcja_Transakcja_ID" id="A56EE82B-3590-55C4-35B5-8614F1CB6C47">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="D04476C4-C36F-825B-0B73-4C9DCBD36F6E" referredColumn="12BBF730-6A18-7904-0333-13137EF0E0C4"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="4D1C16A2-C276-446F-2986-C64B66C20662" name="Faktura_PK">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>8A4FA539-51E7-4BEE-7DA7-837A05CC75F5</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="751BBB09-FBB4-621B-8AB3-63E0D05F4B81"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="1982EF46-2E9E-804B-4216-0D53C328E6C6" name="Faktura__IDX">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>0CEF3BB9-4A0F-8401-3E08-D82938FBDD9B</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="A56EE82B-3590-55C4-35B5-8614F1CB6C47"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="4C931406-857C-A686-CDA8-F1100F10C270" name="Faktura_Transakcja_FK">
+<createdBy>sekey</createdBy>
+<createdTime>2026-03-05 15:57:44 UTC</createdTime>
+<generatorID>0CEF3BB9-4A0F-8401-3E08-D82938FBDD9B</generatorID>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A56EE82B-3590-55C4-35B5-8614F1CB6C47"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="salon_samochodowy" id="23173084-3617-08A6-CFD0-8FD5E02E0B11" version="3.5">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 12:50:42 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>23173084-3617-08A6-CFD0-8FD5E02E0B11</designId>
+</OSDM_Design>

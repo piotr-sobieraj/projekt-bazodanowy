@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Katalog Zawiera" directorySegmentName="seg_0" id="1C971F31-DF8E-AF7B-418F-625E912B1FD3">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:13:12 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<sourcePk>AB78ACF8-D7D3-0E73-AB70-5BD448B3194A</sourcePk>
+<targetPk>6974FEE6-52AB-F85A-C6C0-9D2B4893AD33</targetPk>
+<identifying>false</identifying>
+<optionalSource>false</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>737045B5-E04B-0C5A-CF31-B35491D4C5AD</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>60614F7F-9B05-CC72-3EF7-F6FC52E7D2CC</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

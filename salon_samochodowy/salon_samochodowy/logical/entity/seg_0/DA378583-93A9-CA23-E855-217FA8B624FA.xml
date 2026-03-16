@@ -1,0 +1,108 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="DA378583-93A9-CA23-E855-217FA8B624FA" name="Klient">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:17:27 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_klient" id="CDE6960E-9E00-55C4-684C-AD6330AE16D1">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:17:27 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>56D37A34-0E4A-150A-16EF-BD452E5F88F4</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>8</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,8,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nazwa" id="FEABBCA8-0FF6-F951-A361-E952ACB1CF69">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:17:27 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>4CB14F41-E136-4A53-085C-3D51C00CCCC1</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>100</dataTypeSize>
+<ownDataTypeParameters>100,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="adres" id="52314EDA-1882-35A7-C2B7-28833E18A766">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:17:27 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>B094CFA9-1CBF-8E2A-AAC9-149B26D6066C</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nip" id="653DD0CC-D041-BEE8-A8BA-200BDFB5B418">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:17:27 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>7C98C4C3-266E-70D9-286A-3869B0C4F6FA</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>10</dataTypePrecision>
+<dataTypeScale>0</dataTypeScale>
+<ownDataTypeParameters>,10,0</ownDataTypeParameters>
+</Attribute>
+<Attribute name="rabat" id="0EF32784-51D8-2830-CCDB-4EFEC1EFFD08">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:17:27 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<importedID>04BF6A76-1821-6FAE-CA5D-B4D0D394CBAC</importedID>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<dataTypePrecision>3</dataTypePrecision>
+<dataTypeScale>1</dataTypeScale>
+<ownDataTypeParameters>,3,1</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="F8D087CC-A93F-C359-563F-C298A99F7A08" name="Klient_PK">
+<createdBy>Student</createdBy>
+<createdTime>2026-02-28 13:17:27 UTC</createdTime>
+<ownerDesignName>salon_samochodowy</ownerDesignName>
+<engineerTo>
+<item key="C34DD153-2474-EC06-60BF-0CD891C24DC5" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>CDE6960E-9E00-55C4-684C-AD6330AE16D1</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>
