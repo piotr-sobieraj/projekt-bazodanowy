@@ -1,5 +1,4 @@
-2. Wygenerowac kod dla SQL Server 
-3. Utworzyc baze na podstawie wygenerowanego kodu w SQl Server
+3a. [PIOTR] Wygenerować dane w ilości pozwalającej na zademonstrowanie indeksów
 4. Zademnstrowac indeksy klastrowe i nieklastrowe.
 5. Pokazac jak uzycie indeksu moze zredukowac liczbe odczytywanych stron i wplynac na plan wykonania zapytania.
 Patrz http://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/indeksy.sql
@@ -18,4 +17,7 @@ http://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/triggers_new_version.txt
 
 ---
 ZROBIONE
-1. [SEBA] Przygotowac 6-8 tabel w Oracle SQL Developer Data Modeller 
+1. [SEBA] Przygotowac 6-8 tabel w Oracle SQL Developer Data Modeller
+2. [PIOTR] Wygenerowac kod dla SQL Server 
+3. [PIOTR] Utworzyc baze na podstawie wygenerowanego kodu w SQl Server
+   
