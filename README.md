@@ -18,6 +18,6 @@ http://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/triggers_new_version.txt
 ---
 ZROBIONE
 1. [SEBA] Przygotowac 6-8 tabel w Oracle SQL Developer Data Modeller
-2. [PIOTR] Wygenerowac kod dla SQL Server 
-3. [PIOTR] Utworzyc baze na podstawie wygenerowanego kodu w SQl Server
+2. [WIKTOR] Wygenerowac kod dla SQL Server 
+3. [WIKTOR] Utworzyc baze na podstawie wygenerowanego kodu w SQl Server
    
