@@ -1,0 +1,199 @@
+/* ============================================
+   Parametry skali danych
+   ============================================ */
+DECLARE @LiczbaSalonow      INT = 20;
+DECLARE @LiczbaKatalogow    INT = 40;
+DECLARE @LiczbaSprzedawcow  INT = 1000;
+DECLARE @LiczbaKlientow     INT = 5000;
+DECLARE @LiczbaSamochodow   INT = 5000;
+DECLARE @LiczbaOfert        INT = 5000;   -- nie większa niż klienci i samochody
+
+IF @LiczbaOfert > @LiczbaKlientow OR @LiczbaOfert > @LiczbaSamochodow
+BEGIN
+    RAISERROR(N'Liczba ofert nie może być większa niż liczba klientów i samochodów z powodu unikalnych indeksów w tabeli Oferta.', 16, 1);
+    RETURN;
+END
+GO
+
+/* ============================================
+   Tally / generator liczb
+   ============================================ */
+;WITH
+E1(N) AS (
+    SELECT 1 FROM (VALUES(1),(1),(1),(1),(1),(1),(1),(1),(1),(1)) a(n)
+),
+E2(N) AS (
+    SELECT 1 FROM E1 a CROSS JOIN E1 b
+),
+E4(N) AS (
+    SELECT 1 FROM E2 a CROSS JOIN E2 b
+),
+Nums AS (
+    SELECT ROW_NUMBER() OVER (ORDER BY (SELECT NULL)) AS n
+    FROM E4
+)
+SELECT n
+INTO #Nums
+FROM Nums;
+GO
+
+/* ============================================
+   Wczytanie parametrów do zmiennych sesyjnych
+   ============================================ */
+DECLARE @LiczbaSalonow      INT = 20;
+DECLARE @LiczbaKatalogow    INT = 40;
+DECLARE @LiczbaSprzedawcow  INT = 1000;
+DECLARE @LiczbaKlientow     INT = 5000;
+DECLARE @LiczbaSamochodow   INT = 5000;
+DECLARE @LiczbaOfert        INT = 5000;
+
+/* ============================================
+   SALON
+   ============================================ */
+INSERT INTO dbo.Salon (ID_Salon, Adres)
+SELECT
+    n,
+    CONCAT(N'Miasto ', n, N', ul. Salonowa ', n)
+FROM #Nums
+WHERE n <= @LiczbaSalonow;
+
+/* ============================================
+   KATALOG
+   ============================================ */
+INSERT INTO dbo.Katalog (ID_Katalog, Typ_Kliienta, Salon_ID_Salon)
+SELECT
+    n,
+    CASE WHEN n % 2 = 0 THEN 'B' ELSE 'I' END,
+    ((n - 1) % @LiczbaSalonow) + 1
+FROM #Nums
+WHERE n <= @LiczbaKatalogow;
+
+/* ============================================
+   SPRZEDAWCA
+   ID_Sprzedawca ma być NUMERIC(4) -> max 9999
+   ============================================ */
+INSERT INTO dbo.Sprzedawca (ID_Sprzedawca, Imie, Nazwisko, Salon_ID_Salon)
+SELECT
+    n,
+    CONCAT(N'Imie', n),
+    CONCAT(N'Nazwisko', n),
+    ((n - 1) % @LiczbaSalonow) + 1
+FROM #Nums
+WHERE n <= @LiczbaSprzedawcow;
+
+/* ============================================
+   KLIENT
+   id_klient NUMERIC(8)
+   nip tylko dla części klientów
+   ============================================ */
+INSERT INTO dbo.Klient (id_klient, nazwa, adres, nip, rabat)
+SELECT
+    10000000 + n,
+    CASE
+        WHEN n % 5 = 0 THEN CONCAT(N'Firma_', n, N' Sp. z o.o.')
+        WHEN n % 5 = 1 THEN CONCAT(N'Klient_', n)
+        WHEN n % 5 = 2 THEN CONCAT(N'Przedsiębiorstwo_', n)
+        WHEN n % 5 = 3 THEN CONCAT(N'Osoba_', n)
+        ELSE CONCAT(N'Podmiot_', n)
+    END,
+    CONCAT(N'Ulica ', n, N', 90-', RIGHT(CONCAT('00', n % 100), 2), N' Miasto_', ((n - 1) % 50) + 1),
+    CASE
+        WHEN n % 3 = 0 THEN CAST(5000000000 + n AS NUMERIC(10))
+        ELSE NULL
+    END,
+    CAST((n % 11) * 0.5 AS NUMERIC(3,1))
+FROM #Nums
+WHERE n <= @LiczbaKlientow;
+
+/* ============================================
+   SAMOCHÓD
+   ============================================ */
+INSERT INTO dbo.[Samochód] (ID_Samochód, Model, Wersja, Cena, Rok_Produkcji, Katalog_ID_Katalog)
+SELECT
+    n,
+    CONCAT(N'Model_', ((n - 1) % 30) + 1),
+    CONCAT(N'Wersja_', ((n - 1) % 8) + 1),
+    CAST(80000 + ((n * 137) % 220000) AS MONEY),
+    CAST(2018 + (n % 9) AS SMALLINT),
+    ((n - 1) % @LiczbaKatalogow) + 1
+FROM #Nums
+WHERE n <= @LiczbaSamochodow;
+
+/* ============================================
+   OFERTA
+   UWAGA:
+   - UNIQUE na Samochód_ID_Samochód
+   - UNIQUE na Klient_id_klient
+   dlatego 1 klient = 1 oferta, 1 samochód = 1 oferta
+   ============================================ */
+INSERT INTO dbo.Oferta
+(
+    ilosc,
+    cena,
+    vat,
+    rabat,
+    id_faktura,
+    id_towar,
+    [Samochód_ID_Samochód],
+    Klient_id_klient,
+    Sprzedawca_ID_Sprzedawca
+)
+SELECT
+    CAST(1.000 AS NUMERIC(6,3)),
+    CAST(80000 + ((n * 137) % 220000) AS NUMERIC(8,2)),
+    CAST(23.0 AS NUMERIC(3,1)),
+    CAST((n % 7) * 1.0 AS NUMERIC(3,1)),
+    20000000 + n,
+    300000000 + n,
+    n,                  -- każdy samochód raz
+    10000000 + n,       -- każdy klient raz
+    ((n - 1) % @LiczbaSprzedawcow) + 1
+FROM #Nums
+WHERE n <= @LiczbaOfert;
+
+/* ============================================
+   TRANSAKCJA
+   Transakcja_ID jest IDENTITY
+   ============================================ */
+INSERT INTO dbo.Transakcja
+(
+    Oferta_id_faktura,
+    Oferta_id_towar,
+    Data
+)
+SELECT
+    o.id_faktura,
+    o.id_towar,
+    DATEADD(DAY, (ROW_NUMBER() OVER (ORDER BY o.id_faktura) - 1) % 365, '2025-01-01')
+FROM dbo.Oferta o;
+
+/* ============================================
+   FAKTURA
+   wiążemy po ofercie -> transakcji
+   ============================================ */
+INSERT INTO dbo.Faktura
+(
+    id_faktura,
+    numer,
+    data,
+    id_klient,
+    id_sprzedawca,
+    Transakcja_Transakcja_ID
+)
+SELECT
+    o.id_faktura,
+    CONCAT('FV/', YEAR(t.Data), '/', RIGHT(CONCAT('000000', ROW_NUMBER() OVER (ORDER BY o.id_faktura)), 6)),
+    t.Data,
+    o.Klient_id_klient,
+    o.Sprzedawca_ID_Sprzedawca,
+    t.Transakcja_ID
+FROM dbo.Oferta o
+JOIN dbo.Transakcja t
+    ON t.Oferta_id_faktura = o.id_faktura
+   AND t.Oferta_id_towar   = o.id_towar;
+
+/* ============================================
+   Sprzątanie
+   ============================================ */
+DROP TABLE #Nums;
+GO
