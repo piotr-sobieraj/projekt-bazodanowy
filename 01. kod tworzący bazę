@@ -1,0 +1,406 @@
+IF OBJECT_ID(N'dbo.Faktura', N'U') IS NOT NULL
+    DROP TABLE dbo.Faktura
+GO
+
+IF OBJECT_ID(N'dbo.Samochód', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Samochód_Katalog_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Samochód
+        DROP CONSTRAINT Samochód_Katalog_FK
+END
+GO
+
+IF OBJECT_ID(N'dbo.Katalog', N'U') IS NOT NULL
+    DROP TABLE dbo.Katalog
+GO
+
+IF OBJECT_ID(N'dbo.Oferta', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Oferta_Klient_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Oferta
+        DROP CONSTRAINT Oferta_Klient_FK
+END
+GO
+
+IF OBJECT_ID(N'dbo.Klient', N'U') IS NOT NULL
+    DROP TABLE dbo.Klient
+GO
+
+IF OBJECT_ID(N'dbo.Transakcja', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Transakcja_Oferta_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Transakcja
+        DROP CONSTRAINT Transakcja_Oferta_FK
+END
+GO
+
+IF OBJECT_ID(N'dbo.Oferta', N'U') IS NOT NULL
+    DROP TABLE dbo.Oferta
+GO
+
+IF OBJECT_ID(N'dbo.Katalog', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Katalog_Salon_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Katalog
+        DROP CONSTRAINT Katalog_Salon_FK
+END
+GO
+
+IF OBJECT_ID(N'dbo.Sprzedawca', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Sprzedawca_Salon_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Sprzedawca
+        DROP CONSTRAINT Sprzedawca_Salon_FK
+END
+GO
+
+IF OBJECT_ID(N'dbo.Salon', N'U') IS NOT NULL
+    DROP TABLE dbo.Salon
+GO
+
+IF OBJECT_ID(N'dbo.Oferta', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Oferta_Samochód_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Oferta
+        DROP CONSTRAINT Oferta_Samochód_FK
+END
+GO
+
+IF OBJECT_ID(N'dbo.Samochód', N'U') IS NOT NULL
+    DROP TABLE dbo.Samochód
+GO
+
+IF OBJECT_ID(N'dbo.Oferta', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Oferta_Sprzedawca_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Oferta
+        DROP CONSTRAINT Oferta_Sprzedawca_FK
+END
+GO
+
+IF OBJECT_ID(N'dbo.Sprzedawca', N'U') IS NOT NULL
+    DROP TABLE dbo.Sprzedawca
+GO
+
+IF OBJECT_ID(N'dbo.Faktura', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Faktura_Transakcja_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Faktura
+        DROP CONSTRAINT Faktura_Transakcja_FK
+END
+GO
+
+IF OBJECT_ID(N'dbo.Transakcja', N'U') IS NOT NULL
+    DROP TABLE dbo.Transakcja
+GO
+
+
+
+CREATE TABLE Faktura 
+    (
+     id_faktura NUMERIC (8) NOT NULL , 
+     numer VARCHAR (20) NOT NULL , 
+     data DATE NOT NULL , 
+     id_klient NUMERIC (8) NOT NULL , 
+     id_sprzedawca NUMERIC (4) NOT NULL , 
+     Transakcja_Transakcja_ID NUMERIC (28) NOT NULL 
+    )
+GO 
+
+    
+
+
+CREATE UNIQUE NONCLUSTERED INDEX 
+    Faktura__IDX ON Faktura 
+    ( 
+     Transakcja_Transakcja_ID 
+    ) 
+GO
+
+ALTER TABLE Faktura ADD CONSTRAINT Faktura_PK PRIMARY KEY CLUSTERED (id_faktura)
+     WITH (
+     ALLOW_PAGE_LOCKS = ON , 
+     ALLOW_ROW_LOCKS = ON )
+GO
+
+CREATE TABLE Katalog 
+    (
+     ID_Katalog INTEGER NOT NULL , 
+     Typ_Kliienta CHAR (1) NOT NULL , 
+     Salon_ID_Salon INTEGER NOT NULL 
+    )
+GO 
+
+
+
+EXEC sp_addextendedproperty 'MS_Description' , 'Indywidualny lub Biznesowy' , 'USER' , 'dbo' , 'TABLE' , 'Katalog' , 'COLUMN' , 'Typ_Kliienta' 
+GO
+
+ALTER TABLE Katalog ADD CONSTRAINT Katalog_PK PRIMARY KEY CLUSTERED (ID_Katalog)
+     WITH (
+     ALLOW_PAGE_LOCKS = ON , 
+     ALLOW_ROW_LOCKS = ON )
+GO
+
+CREATE TABLE Klient 
+    (
+     id_klient NUMERIC (8) NOT NULL , 
+     nazwa VARCHAR (100) NOT NULL , 
+     adres VARCHAR (200) NOT NULL , 
+     nip NUMERIC (10) , 
+     rabat NUMERIC (3,1) 
+    )
+GO
+
+ALTER TABLE Klient ADD CONSTRAINT Klient_PK PRIMARY KEY CLUSTERED (id_klient)
+     WITH (
+     ALLOW_PAGE_LOCKS = ON , 
+     ALLOW_ROW_LOCKS = ON )
+GO
+
+CREATE TABLE Oferta 
+    (
+     ilosc NUMERIC (6,3) NOT NULL , 
+     cena NUMERIC (8,2) NOT NULL , 
+     vat NUMERIC (3,1) NOT NULL , 
+     rabat NUMERIC (3,1) , 
+     id_faktura NUMERIC (8) NOT NULL , 
+     id_towar NUMERIC (10) NOT NULL , 
+     Samochód_ID_Samochód INTEGER NOT NULL , 
+     Klient_id_klient NUMERIC (8) NOT NULL , 
+     Sprzedawca_ID_Sprzedawca INTEGER NOT NULL 
+    )
+GO 
+
+    
+
+
+CREATE UNIQUE NONCLUSTERED INDEX 
+    Oferta__IDX ON Oferta 
+    ( 
+     Samochód_ID_Samochód 
+    ) 
+GO 
+
+
+CREATE UNIQUE NONCLUSTERED INDEX 
+    Oferta__IDXv1 ON Oferta 
+    ( 
+     Klient_id_klient 
+    ) 
+GO
+
+ALTER TABLE Oferta ADD CONSTRAINT Oferta_PK PRIMARY KEY CLUSTERED (id_faktura, id_towar)
+     WITH (
+     ALLOW_PAGE_LOCKS = ON , 
+     ALLOW_ROW_LOCKS = ON )
+GO
+
+CREATE TABLE Salon 
+    (
+     ID_Salon INTEGER NOT NULL , 
+     Adres VARCHAR (200) NOT NULL 
+    )
+GO
+
+ALTER TABLE Salon ADD CONSTRAINT Salon_PK PRIMARY KEY CLUSTERED (ID_Salon)
+     WITH (
+     ALLOW_PAGE_LOCKS = ON , 
+     ALLOW_ROW_LOCKS = ON )
+GO
+
+CREATE TABLE Samochód 
+    (
+     ID_Samochód INTEGER NOT NULL , 
+     Model VARCHAR (200) NOT NULL , 
+     Wersja VARCHAR (200) NOT NULL , 
+     Cena MONEY NOT NULL , 
+     Rok_Produkcji SMALLINT NOT NULL , 
+     Katalog_ID_Katalog INTEGER NOT NULL 
+    )
+GO
+
+ALTER TABLE Samochód ADD CONSTRAINT Samochód_PK PRIMARY KEY CLUSTERED (ID_Samochód)
+     WITH (
+     ALLOW_PAGE_LOCKS = ON , 
+     ALLOW_ROW_LOCKS = ON )
+GO
+
+CREATE TABLE Sprzedawca 
+    (
+     ID_Sprzedawca INTEGER NOT NULL , 
+     Imie VARCHAR (30) NOT NULL , 
+     Nazwisko VARCHAR NOT NULL , 
+     Salon_ID_Salon INTEGER NOT NULL 
+    )
+GO
+
+ALTER TABLE Sprzedawca ADD CONSTRAINT Sprzedawca_PK PRIMARY KEY CLUSTERED (ID_Sprzedawca)
+     WITH (
+     ALLOW_PAGE_LOCKS = ON , 
+     ALLOW_ROW_LOCKS = ON )
+GO
+
+CREATE TABLE Transakcja 
+    (
+     Oferta_id_faktura NUMERIC (8) NOT NULL , 
+     Oferta_id_towar NUMERIC (10) NOT NULL , 
+     Transakcja_ID NUMERIC (28) NOT NULL IDENTITY NOT FOR REPLICATION , 
+     Data DATE NOT NULL 
+    )
+GO 
+
+    
+
+
+CREATE UNIQUE NONCLUSTERED INDEX 
+    Transakcja__IDX ON Transakcja 
+    ( 
+     Oferta_id_faktura , 
+     Oferta_id_towar 
+    ) 
+GO
+
+ALTER TABLE Transakcja ADD CONSTRAINT Transakcja_PK PRIMARY KEY CLUSTERED (Transakcja_ID)
+     WITH (
+     ALLOW_PAGE_LOCKS = ON , 
+     ALLOW_ROW_LOCKS = ON )
+GO
+
+ALTER TABLE Faktura 
+    ADD CONSTRAINT Faktura_Transakcja_FK FOREIGN KEY 
+    ( 
+     Transakcja_Transakcja_ID
+    ) 
+    REFERENCES Transakcja 
+    ( 
+     Transakcja_ID 
+    ) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION 
+GO
+
+ALTER TABLE Katalog 
+    ADD CONSTRAINT Katalog_Salon_FK FOREIGN KEY 
+    ( 
+     Salon_ID_Salon
+    ) 
+    REFERENCES Salon 
+    ( 
+     ID_Salon 
+    ) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION 
+GO
+
+ALTER TABLE Oferta 
+    ADD CONSTRAINT Oferta_Klient_FK FOREIGN KEY 
+    ( 
+     Klient_id_klient
+    ) 
+    REFERENCES Klient 
+    ( 
+     id_klient 
+    ) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION 
+GO
+
+ALTER TABLE Oferta 
+    ADD CONSTRAINT Oferta_Samochód_FK FOREIGN KEY 
+    ( 
+     Samochód_ID_Samochód
+    ) 
+    REFERENCES Samochód 
+    ( 
+     ID_Samochód 
+    ) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION 
+GO
+
+ALTER TABLE Oferta 
+    ADD CONSTRAINT Oferta_Sprzedawca_FK FOREIGN KEY 
+    ( 
+     Sprzedawca_ID_Sprzedawca
+    ) 
+    REFERENCES Sprzedawca 
+    ( 
+     ID_Sprzedawca 
+    ) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION 
+GO
+
+ALTER TABLE Samochód 
+    ADD CONSTRAINT Samochód_Katalog_FK FOREIGN KEY 
+    ( 
+     Katalog_ID_Katalog
+    ) 
+    REFERENCES Katalog 
+    ( 
+     ID_Katalog 
+    ) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION 
+GO
+
+ALTER TABLE Sprzedawca 
+    ADD CONSTRAINT Sprzedawca_Salon_FK FOREIGN KEY 
+    ( 
+     Salon_ID_Salon
+    ) 
+    REFERENCES Salon 
+    ( 
+     ID_Salon 
+    ) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION 
+GO
+
+ALTER TABLE Transakcja 
+    ADD CONSTRAINT Transakcja_Oferta_FK FOREIGN KEY 
+    ( 
+     Oferta_id_faktura, 
+     Oferta_id_towar
+    ) 
+    REFERENCES Oferta 
+    ( 
+     id_faktura , 
+     id_towar 
+    ) 
+    ON DELETE NO ACTION 
+    ON UPDATE NO ACTION 
+GO
