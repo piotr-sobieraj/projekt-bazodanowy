@@ -1,0 +1,51 @@
+CREATE OR ALTER FUNCTION dbo.oferty_w_czasie
+(
+    @DataOd DATE,
+    @DataDo DATE
+)
+RETURNS TABLE
+AS
+RETURN
+(
+    SELECT
+        o.id_faktura,
+        o.id_towar,
+        f.data AS DataOferty,
+        CONCAT(sm.Model, ' ', sm.Wersja) AS Samochod,
+        sal.Adres AS Salon,
+        CONCAT(sp.Imie, ' ', sp.Nazwisko) AS Sprzedawca,
+        CAST(
+            o.ilosc * o.cena *
+            (1 - ISNULL(o.rabat, 0) / 100.0) *
+            (1 + o.vat / 100.0)
+            AS DECIMAL(18,2)
+        ) AS Wartosc,
+        CASE
+            WHEN t.Transakcja_ID IS NOT NULL THEN CAST(1 AS BIT)
+            ELSE CAST(0 AS BIT)
+        END AS CzyZrealizowane
+    FROM dbo.Oferta o
+    LEFT JOIN dbo.Faktura f
+        ON f.id_faktura = o.id_faktura
+    JOIN dbo.[Samochód] sm
+        ON sm.ID_Samochód = o.[Samochód_ID_Samochód]
+    JOIN dbo.Sprzedawca sp
+        ON sp.ID_Sprzedawca = o.Sprzedawca_ID_Sprzedawca
+    JOIN dbo.Salon sal
+        ON sal.ID_Salon = sp.Salon_ID_Salon
+    LEFT JOIN dbo.Transakcja t
+        ON t.Oferta_id_faktura = o.id_faktura
+       AND t.Oferta_id_towar = o.id_towar
+    WHERE
+        f.data BETWEEN @DataOd AND @DataDo
+        OR (
+            f.data IS NULL
+            AND t.Transakcja_ID IS NULL
+        )
+);
+GO
+
+
+SELECT *
+FROM dbo.oferty_w_czasie('2025-01-01', '2025-12-31');
+GO
