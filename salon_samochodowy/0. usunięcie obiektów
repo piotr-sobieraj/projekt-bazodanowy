@@ -1,0 +1,189 @@
+/* =========================================================
+   DROP FK
+   ========================================================= */
+
+IF OBJECT_ID(N'dbo.Faktura', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Faktura_Transakcja_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Faktura
+        DROP CONSTRAINT Faktura_Transakcja_FK
+END
+GO
+
+IF OBJECT_ID(N'dbo.Katalog', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Katalog_Salon_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Katalog
+        DROP CONSTRAINT Katalog_Salon_FK
+END
+GO
+
+IF OBJECT_ID(N'dbo.Oferta', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Oferta_Klient_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Oferta
+        DROP CONSTRAINT Oferta_Klient_FK
+END
+GO
+
+IF OBJECT_ID(N'dbo.Oferta', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Oferta_Samochód_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Oferta
+        DROP CONSTRAINT Oferta_Samochód_FK
+END
+GO
+
+IF OBJECT_ID(N'dbo.Oferta', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Oferta_Sprzedawca_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Oferta
+        DROP CONSTRAINT Oferta_Sprzedawca_FK
+END
+GO
+
+IF OBJECT_ID(N'dbo.Samochód', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Samochód_Katalog_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Samochód
+        DROP CONSTRAINT Samochód_Katalog_FK
+END
+GO
+
+IF OBJECT_ID(N'dbo.Sprzedawca', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Sprzedawca_Salon_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Sprzedawca
+        DROP CONSTRAINT Sprzedawca_Salon_FK
+END
+GO
+
+IF OBJECT_ID(N'dbo.Transakcja', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.foreign_keys
+    WHERE name = N'Transakcja_Oferta_FK'
+)
+BEGIN
+    ALTER TABLE dbo.Transakcja
+        DROP CONSTRAINT Transakcja_Oferta_FK
+END
+GO
+
+
+/* =========================================================
+   DROP INDEXES
+   ========================================================= */
+
+IF OBJECT_ID(N'dbo.Faktura', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.indexes
+    WHERE name = N'Faktura__IDX'
+      AND object_id = OBJECT_ID(N'dbo.Faktura')
+)
+BEGIN
+    DROP INDEX Faktura__IDX ON dbo.Faktura
+END
+GO
+
+IF OBJECT_ID(N'dbo.Oferta', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.indexes
+    WHERE name = N'Oferta__IDX'
+      AND object_id = OBJECT_ID(N'dbo.Oferta')
+)
+BEGIN
+    DROP INDEX Oferta__IDX ON dbo.Oferta
+END
+GO
+
+IF OBJECT_ID(N'dbo.Oferta', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.indexes
+    WHERE name = N'Oferta__IDXv1'
+      AND object_id = OBJECT_ID(N'dbo.Oferta')
+)
+BEGIN
+    DROP INDEX Oferta__IDXv1 ON dbo.Oferta
+END
+GO
+
+IF OBJECT_ID(N'dbo.Transakcja', N'U') IS NOT NULL
+AND EXISTS (
+    SELECT 1
+    FROM sys.indexes
+    WHERE name = N'Transakcja__IDX'
+      AND object_id = OBJECT_ID(N'dbo.Transakcja')
+)
+BEGIN
+    DROP INDEX Transakcja__IDX ON dbo.Transakcja
+END
+GO
+
+
+/* =========================================================
+   DROP TABLES
+   ========================================================= */
+
+IF OBJECT_ID(N'dbo.Faktura', N'U') IS NOT NULL
+    DROP TABLE dbo.Faktura
+GO
+
+IF OBJECT_ID(N'dbo.Transakcja', N'U') IS NOT NULL
+    DROP TABLE dbo.Transakcja
+GO
+
+IF OBJECT_ID(N'dbo.Oferta', N'U') IS NOT NULL
+    DROP TABLE dbo.Oferta
+GO
+
+IF OBJECT_ID(N'dbo.Samochód', N'U') IS NOT NULL
+    DROP TABLE dbo.Samochód
+GO
+
+IF OBJECT_ID(N'dbo.Katalog', N'U') IS NOT NULL
+    DROP TABLE dbo.Katalog
+GO
+
+IF OBJECT_ID(N'dbo.Klient', N'U') IS NOT NULL
+    DROP TABLE dbo.Klient
+GO
+
+IF OBJECT_ID(N'dbo.Sprzedawca', N'U') IS NOT NULL
+    DROP TABLE dbo.Sprzedawca
+GO
+
+IF OBJECT_ID(N'dbo.Salon', N'U') IS NOT NULL
+    DROP TABLE dbo.Salon
+GO
