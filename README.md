@@ -1,4 +1,4 @@
-3a. [PIOTR] Wygenerować dane w ilości pozwalającej na zademonstrowanie indeksów
+3. (a) [PIOTR] Wygenerować dane w ilości pozwalającej na zademonstrowanie indeksów
 4. Zademnstrowac indeksy klastrowe i nieklastrowe.
 5. Pokazac jak uzycie indeksu moze zredukowac liczbe odczytywanych stron i wplynac na plan wykonania zapytania.
 Patrz http://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/indeksy.sql
