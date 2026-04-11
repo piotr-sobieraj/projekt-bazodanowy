@@ -1,0 +1,39 @@
+CREATE FUNCTION dbo.wysokosc_sprzedazy
+(
+    @DataOd DATE,
+    @DataDo DATE,
+    @Sprzedawca INT = NULL,
+    @Salon INT = NULL
+)
+RETURNS DECIMAL(18,2)
+AS
+BEGIN
+    DECLARE @Wynik DECIMAL(18,2);
+
+    SELECT 
+        @Wynik = ISNULL(SUM(
+            CAST(o.ilosc AS DECIMAL(18,3)) *
+            CAST(o.cena AS DECIMAL(18,2)) *
+            (1 - ISNULL(CAST(o.rabat AS DECIMAL(5,2)), 0) / 100.0) *
+            (1 + CAST(o.vat AS DECIMAL(5,2)) / 100.0)
+        ), 0)
+    FROM dbo.Faktura f
+    JOIN dbo.Oferta o
+        ON o.id_faktura = f.id_faktura
+    JOIN dbo.Sprzedawca s
+        ON s.ID_Sprzedawca = f.id_sprzedawca
+    WHERE f.data >= @DataOd
+      AND f.data <= @DataDo
+      AND (@Sprzedawca IS NULL OR f.id_sprzedawca = @Sprzedawca)
+      AND (@Salon IS NULL OR s.Salon_ID_Salon = @Salon);
+
+    RETURN @Wynik;
+END
+GO
+
+
+SELECT dbo.wysokosc_sprzedazy('2025-01-01', '2025-12-31', NULL, NULL) AS Sprzedaz;
+
+SELECT dbo.wysokosc_sprzedazy('2025-01-01', '2025-12-31', 15, NULL) AS Sprzedaz;
+
+SELECT dbo.wysokosc_sprzedazy('2025-01-01', '2025-12-31', NULL, 55) AS Sprzedaz;
