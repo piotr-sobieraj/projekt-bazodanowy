@@ -1,4 +1,3 @@
-1. Przygotowac 6-8 tabel w Oracle SQL Developer Data Modeller
 2. Wygenerowac kod dla SQL Server 
 3. Utworzyc baze na podstawie wygenerowanego kodu w SQl Server
 4. Zademnstrowac indeksy klastrowe i nieklastrowe.
@@ -16,3 +15,7 @@ Patrz https://docs.microsoft.com/en-us/sql/relational-databases/views/create-ind
 9. Zademnstorwać użycie funkcji rankingowych , lag, lead https://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/LAG_LEAD_FIRST_LAST_VALUE_full_version.sql
 10. Zaimplementować wyzwalacz DML, DDL oraz insted of
 http://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/triggers_new_version.txt
+
+---
+ZROBIONE
+1. [SEBA] Przygotowac 6-8 tabel w Oracle SQL Developer Data Modeller 
