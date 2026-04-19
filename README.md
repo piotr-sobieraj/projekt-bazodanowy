@@ -1,4 +1,6 @@
 Wstępnie gotowe na zajęcia 16 maja. 
+
+
 [PIOTR] Dodać procedurę działająca na dwóch tabelach
 
 4. [WIKTOR] Zademnstrowac indeksy klastrowe i nieklastrowe. 
