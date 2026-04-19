@@ -1,3 +1,10 @@
+CREATE SEQUENCE dbo.seq_klient
+    AS INT
+    START WITH 10000001
+    INCREMENT BY 1;
+GO
+
+
 DECLARE @NextId INT;
 
 SELECT @NextId = ISNULL(MAX(id_klient), 10000000) + 1
