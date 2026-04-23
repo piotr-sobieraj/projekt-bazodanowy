@@ -14,7 +14,7 @@ Patrz https://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/WIDOKI_INDEKSOWANE
 Patrz https://docs.microsoft.com/en-us/sql/relational-databases/views/create-indexed-views?view=sql-server-2017
 8. [PIOTR] Przygotowac zestaw instrukcji select dla stworzonej bazy. Zastosowac select-from-where-group by-having-order by oraz funkcje agregujace
 9. [SEBA] Zademnstorwać użycie funkcji rankingowych , lag, lead https://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/LAG_LEAD_FIRST_LAST_VALUE_full_version.sql
-10. [TRIGGER] Zaimplementować wyzwalacz DML, DDL oraz insted of
+10. [PIOTR] Zaimplementować wyzwalacz DML, DDL oraz insted of
 http://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/triggers_new_version.txt
 11. [WIKTOR] Partycjonowanie. Dodać 4 grupy plików do bazy. Do każdej grupy dodć jeden plik. Utworzyć funkcje i schematy partycjonoawania. Wybrać tabele do partycjonowania. Np. tabela ZAMÓWIENIE z indeksem klastrowym na data_zam i na tej partycji zrobić kwartałami.  
 
