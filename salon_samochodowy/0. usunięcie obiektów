@@ -152,6 +152,12 @@ END
 GO
 
 
+IF OBJECT_ID('dbo.seq_klient', 'SO') IS NOT NULL
+    DROP SEQUENCE dbo.seq_klient;
+GO
+
+
+
 /* =========================================================
    DROP TABLES
    ========================================================= */
