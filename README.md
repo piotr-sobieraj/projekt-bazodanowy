@@ -1,7 +1,6 @@
 Wstępnie gotowe na zajęcia 16 maja. 
 
 
-[PIOTR] Dodać procedurę działająca na dwóch tabelach
 
 4. [WIKTOR] Zademnstrowac indeksy klastrowe i nieklastrowe. 
 5. [WIKTOR] Pokazac jak uzycie indeksu moze zredukowac liczbe odczytywanych stron i wplynac na plan wykonania zapytania.
@@ -33,5 +32,9 @@ multi-statement valued function, inline valued functions). Utworzyc przykladowe 
 http://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/Procedures_transactions_sequences.sql
 https://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/Table_valued_functions.sql
 https://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/TVF.sql
+
+#
+[PIOTR] Dodać procedurę działająca na dwóch tabelach
+
    
    
