@@ -192,8 +192,35 @@ JOIN dbo.Transakcja t
     ON t.Oferta_id_faktura = o.id_faktura
    AND t.Oferta_id_towar   = o.id_towar;
 
+
+-- Kilka aut - wykorzystywane w procedurze dodaj_transakcje
+/* ============================================
+   DODATKOWE SAMOCHODY BEZ OFERTY
+   ============================================ */
+INSERT INTO dbo.[Samochód] 
+(
+    ID_Samochód, 
+    Model, 
+    Wersja, 
+    Cena, 
+    Rok_Produkcji, 
+    Katalog_ID_Katalog
+)
+SELECT
+    @LiczbaSamochodow + n,
+    CONCAT(N'Dodatkowy_Model_', n),
+    CONCAT(N'Dodatkowa_Wersja_', n),
+    CAST(90000 + (n * 5000) AS MONEY),
+    CAST(2026 AS SMALLINT),
+    ((n - 1) % @LiczbaKatalogow) + 1
+FROM #Nums
+WHERE n <= 10;
+
+
+
 /* ============================================
    Sprzątanie
    ============================================ */
 DROP TABLE #Nums;
 GO
+
