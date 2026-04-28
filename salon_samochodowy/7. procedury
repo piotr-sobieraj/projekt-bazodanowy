@@ -85,6 +85,114 @@ END
 GO
 
 
+
+-- Procedura działająca na dwóch tabelach
+
+CREATE OR ALTER PROCEDURE dbo.dodaj_transakcje
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    DECLARE @id_faktura NUMERIC(8);
+    DECLARE @id_towar NUMERIC(10);
+    DECLARE @id_samochod INT;
+    DECLARE @id_klient NUMERIC(8);
+    DECLARE @id_sprzedawca INT;
+
+    SELECT @id_faktura = MAX(id_faktura) + 1
+    FROM dbo.Oferta;
+
+    SELECT @id_towar = MAX(id_towar) + 1
+    FROM dbo.Oferta;
+
+    SELECT TOP 1 @id_samochod = s.ID_Samochód
+    FROM dbo.[Samochód] s
+    WHERE NOT EXISTS (
+        SELECT 1
+        FROM dbo.Oferta o
+        WHERE o.[Samochód_ID_Samochód] = s.ID_Samochód
+    )
+    ORDER BY s.ID_Samochód;
+
+    SELECT TOP 1 @id_klient = k.id_klient
+    FROM dbo.Klient k
+    WHERE NOT EXISTS (
+        SELECT 1
+        FROM dbo.Oferta o
+        WHERE o.Klient_id_klient = k.id_klient
+    )
+    ORDER BY k.id_klient;
+
+    SELECT TOP 1 @id_sprzedawca = ID_Sprzedawca
+    FROM dbo.Sprzedawca
+    ORDER BY ID_Sprzedawca;
+
+    IF @id_samochod IS NULL
+    BEGIN
+        RAISERROR(N'Brak wolnego samochodu.', 16, 1);
+        RETURN;
+    END;
+
+    IF @id_klient IS NULL
+    BEGIN
+        RAISERROR(N'Brak wolnego klienta.', 16, 1);
+        RETURN;
+    END;
+
+    BEGIN TRANSACTION;
+
+    INSERT INTO dbo.Oferta
+    (
+        ilosc,
+        cena,
+        vat,
+        rabat,
+        id_faktura,
+        id_towar,
+        [Samochód_ID_Samochód],
+        Klient_id_klient,
+        Sprzedawca_ID_Sprzedawca
+    )
+    VALUES
+    (
+        1.000,
+        100000.00,
+        23.0,
+        0.0,
+        @id_faktura,
+        @id_towar,
+        @id_samochod,
+        @id_klient,
+        @id_sprzedawca
+    );
+
+    INSERT INTO dbo.Transakcja
+    (
+        Oferta_id_faktura,
+        Oferta_id_towar,
+        Data
+    )
+    VALUES
+    (
+        @id_faktura,
+        @id_towar,
+        GETDATE()
+    );
+
+    COMMIT TRANSACTION;
+
+    SELECT 
+        @id_faktura AS id_faktura,
+        @id_towar AS id_towar,
+        @id_samochod AS id_samochod,
+        @id_klient AS id_klient;
+END;
+GO
+
+
+
+
+
 EXEC dbo.dodaj_klienta
     @nazwa = 'Jan Kowalski',
     @adres = 'Łódź, ul. Piotrkowska 10',
@@ -105,3 +213,16 @@ SELECT *
 FROM dbo.Klient
 ORDER BY id_klient DESC;
 GO
+
+
+
+EXEC dbo.dodaj_transakcje;
+SELECT TOP 5 *
+FROM dbo.Oferta
+ORDER BY id_faktura DESC;
+
+SELECT TOP 5 *
+FROM dbo.Transakcja
+ORDER BY Transakcja_ID DESC;
+
+
