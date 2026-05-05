@@ -11,7 +11,6 @@ Patrz http://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/indeksy.sql
 7. [SEBA] Utworzyc przykladowe widoki oraz widoki indeksowane
 Patrz https://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/WIDOKI_INDEKSOWANE.sql
 Patrz https://docs.microsoft.com/en-us/sql/relational-databases/views/create-indexed-views?view=sql-server-2017
-8. [PIOTR] Przygotowac zestaw instrukcji select dla stworzonej bazy. Zastosowac select-from-where-group by-having-order by oraz funkcje agregujace
 9. [SEBA] Zademnstorwać użycie funkcji rankingowych , lag, lead https://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/LAG_LEAD_FIRST_LAST_VALUE_full_version.sql
 10. [PIOTR] Zaimplementować wyzwalacz DML, DDL oraz insted of
 http://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/triggers_new_version.txt
@@ -35,6 +34,10 @@ https://imul.math.uni.lodz.pl/~bleja/systemy_bazodanowe/TVF.sql
 
 #
 [PIOTR] Dodać procedurę działająca na dwóch tabelach
+
+#
+8. [PIOTR] Przygotowac zestaw instrukcji select dla stworzonej bazy. Zastosowac select-from-where-group by-having-order by oraz funkcje agregujace
+
 
    
    
