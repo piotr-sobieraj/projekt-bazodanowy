@@ -1,0 +1,105 @@
+-- 1. Lista wszystkich klientów z rabatem większym niż 3%
+SELECT
+    id_klient,
+    nazwa,
+    adres,
+    rabat
+FROM dbo.Klient
+WHERE rabat > 3
+ORDER BY rabat DESC;
+GO
+
+-- 2. Liczba klientów według wysokości rabatu
+SELECT
+    rabat,
+    COUNT(*) AS LiczbaKlientow
+FROM dbo.Klient
+GROUP BY rabat
+ORDER BY rabat DESC;
+GO
+
+-- 3. Liczba sprzedawców w każdym salonie
+SELECT
+    sal.ID_Salon,
+    sal.Adres,
+    COUNT(sp.ID_Sprzedawca) AS LiczbaSprzedawcow
+FROM dbo.Salon sal
+JOIN dbo.Sprzedawca sp
+    ON sal.ID_Salon = sp.Salon_ID_Salon
+GROUP BY sal.ID_Salon, sal.Adres
+ORDER BY LiczbaSprzedawcow DESC;
+GO
+
+-- 4. Salony, które mają więcej niż 10 sprzedawców
+SELECT
+    sal.ID_Salon,
+    sal.Adres,
+    COUNT(sp.ID_Sprzedawca) AS LiczbaSprzedawcow
+FROM dbo.Salon sal
+JOIN dbo.Sprzedawca sp
+    ON sal.ID_Salon = sp.Salon_ID_Salon
+GROUP BY sal.ID_Salon, sal.Adres
+HAVING COUNT(sp.ID_Sprzedawca) > 10
+ORDER BY LiczbaSprzedawcow DESC;
+GO
+
+-- 5. Średnia cena samochodów według roku produkcji
+SELECT
+    Rok_Produkcji,
+    COUNT(*) AS LiczbaSamochodow,
+    AVG(CAST(Cena AS DECIMAL(18,2))) AS SredniaCena,
+    MIN(Cena) AS Najtanszy,
+    MAX(Cena) AS Najdrozszy
+FROM dbo.[Samochód]
+GROUP BY Rok_Produkcji
+ORDER BY Rok_Produkcji DESC;
+GO
+
+-- 6. Roczniki samochodów, w których średnia cena przekracza 150000
+SELECT
+    Rok_Produkcji,
+    COUNT(*) AS LiczbaSamochodow,
+    AVG(CAST(Cena AS DECIMAL(18,2))) AS SredniaCena
+FROM dbo.[Samochód]
+GROUP BY Rok_Produkcji
+HAVING AVG(CAST(Cena AS DECIMAL(18,2))) > 150000
+ORDER BY SredniaCena DESC;
+GO
+
+-- 7. Wartość ofert według sprzedawcy
+SELECT
+    sp.ID_Sprzedawca,
+    sp.Imie,
+    sp.Nazwisko,
+    COUNT(*) AS LiczbaOfert,
+    SUM(
+        o.ilosc * o.cena *
+        (1 - ISNULL(o.rabat, 0) / 100.0) *
+        (1 + o.vat / 100.0)
+    ) AS WartoscOfert
+FROM dbo.Oferta o
+JOIN dbo.Sprzedawca sp
+    ON o.Sprzedawca_ID_Sprzedawca = sp.ID_Sprzedawca
+GROUP BY sp.ID_Sprzedawca, sp.Imie, sp.Nazwisko
+ORDER BY WartoscOfert DESC;
+GO
+
+
+-- 8. Wartość sprzedaży według salonu
+SELECT
+    sal.ID_Salon,
+    sal.Adres,
+    COUNT(o.id_faktura) AS LiczbaOfert,
+    SUM(
+        o.ilosc * o.cena *
+        (1 - ISNULL(o.rabat, 0) / 100.0) *
+        (1 + o.vat / 100.0)
+    ) AS WartoscSprzedazy
+FROM dbo.Oferta o
+JOIN dbo.Sprzedawca sp
+    ON o.Sprzedawca_ID_Sprzedawca = sp.ID_Sprzedawca
+JOIN dbo.Salon sal
+    ON sp.Salon_ID_Salon = sal.ID_Salon
+GROUP BY sal.ID_Salon, sal.Adres
+ORDER BY WartoscSprzedazy DESC;
+GO

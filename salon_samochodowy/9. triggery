@@ -1,0 +1,121 @@
+/**1. DML trigger — audyt zmiany rabatu klienta
+
+Cel: gdy ktoś zmieni Klient.rabat, zapisujemy starą i nową wartość do tabeli audytowej.
+**/
+
+
+CREATE TABLE dbo.Audyt_Rabat_Klienta
+(
+    id_audyt INT IDENTITY(1,1) PRIMARY KEY,
+    id_klient NUMERIC(8) NOT NULL,
+    stary_rabat NUMERIC(3,1),
+    nowy_rabat NUMERIC(3,1),
+    data_zmiany DATETIME NOT NULL DEFAULT GETDATE(),
+    uzytkownik SYSNAME NOT NULL DEFAULT SUSER_SNAME()
+);
+GO
+
+CREATE OR ALTER TRIGGER dbo.trg_audyt_zmiany_rabatu
+ON dbo.Klient
+AFTER UPDATE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    INSERT INTO dbo.Audyt_Rabat_Klienta
+    (
+        id_klient,
+        stary_rabat,
+        nowy_rabat
+    )
+    SELECT
+        i.id_klient,
+        d.rabat,
+        i.rabat
+    FROM inserted i
+    JOIN deleted d
+        ON i.id_klient = d.id_klient
+    WHERE ISNULL(i.rabat, -1) <> ISNULL(d.rabat, -1);
+END;
+GO
+
+
+
+-- Test
+UPDATE dbo.Klient
+SET rabat = 7.5
+WHERE id_klient = 10000001;
+
+SELECT *
+FROM dbo.Audyt_Rabat_Klienta
+ORDER BY data_zmiany DESC;
+GO
+
+
+
+/**
+2. DDL trigger — blokada usuwania tabel
+
+Cel: zabezpieczenie przed przypadkowym DROP TABLE.
+**/
+
+CREATE OR ALTER TRIGGER trg_blokuj_drop_table
+ON DATABASE
+FOR DROP_TABLE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    RAISERROR('Nie wolno usuwać tabel w tej bazie danych.', 16, 1);
+    ROLLBACK;
+END;
+GO
+
+--Test
+CREATE TABLE dbo.TestDrop
+(
+    id INT
+);
+GO
+
+DROP TABLE dbo.TestDrop;
+GO
+
+
+/**
+3. INSTEAD OF trigger — bezpieczne usuwanie klienta
+
+Cel: gdy ktoś próbuje usunąć klienta, który ma oferty, zamiast usunięcia rzucamy błąd.
+Jeśli klient nie ma ofert, pozwalamy usunąć.
+**/
+
+
+CREATE OR ALTER TRIGGER dbo.trg_zamiast_usun_klienta
+ON dbo.Klient
+INSTEAD OF DELETE
+AS
+BEGIN
+    SET NOCOUNT ON;
+
+    IF EXISTS (
+        SELECT 1
+        FROM deleted d
+        JOIN dbo.Oferta o
+            ON o.Klient_id_klient = d.id_klient
+    )
+    BEGIN
+        RAISERROR('Nie można usunąć klienta, który ma przypisane oferty.', 16, 1);
+        RETURN;
+    END;
+
+    DELETE k
+    FROM dbo.Klient k
+    JOIN deleted d
+        ON k.id_klient = d.id_klient;
+END;
+GO
+
+--Test
+DELETE FROM dbo.Klient
+WHERE id_klient = 10000001;
+GO
