@@ -47,9 +47,9 @@ GO
 SELECT
     Rok_Produkcji,
     COUNT(*) AS LiczbaSamochodow,
-    AVG(CAST(Cena AS DECIMAL(18,2))) AS SredniaCena,
-    MIN(Cena) AS Najtanszy,
-    MAX(Cena) AS Najdrozszy
+    CAST(AVG(Cena) AS DECIMAL(18,2)) AS SredniaCena,
+    CAST(MIN(Cena)AS DECIMAL(18,2)) AS Najtanszy,
+    CAST(MAX(Cena) AS DECIMAL(18,2))AS Najdrozszy
 FROM dbo.[Samochód]
 GROUP BY Rok_Produkcji
 ORDER BY Rok_Produkcji DESC;
@@ -59,7 +59,7 @@ GO
 SELECT
     Rok_Produkcji,
     COUNT(*) AS LiczbaSamochodow,
-    AVG(CAST(Cena AS DECIMAL(18,2))) AS SredniaCena
+    CAST(AVG(Cena) AS DECIMAL(18,2)) AS SredniaCena
 FROM dbo.[Samochód]
 GROUP BY Rok_Produkcji
 HAVING AVG(CAST(Cena AS DECIMAL(18,2))) > 150000
@@ -72,11 +72,11 @@ SELECT
     sp.Imie,
     sp.Nazwisko,
     COUNT(*) AS LiczbaOfert,
-    SUM(
+    CAST(SUM(
         o.ilosc * o.cena *
         (1 - ISNULL(o.rabat, 0) / 100.0) *
         (1 + o.vat / 100.0)
-    ) AS WartoscOfert
+    ) AS DECIMAL(18,2)) AS WartoscOfert
 FROM dbo.Oferta o
 JOIN dbo.Sprzedawca sp
     ON o.Sprzedawca_ID_Sprzedawca = sp.ID_Sprzedawca
@@ -90,11 +90,11 @@ SELECT
     sal.ID_Salon,
     sal.Adres,
     COUNT(o.id_faktura) AS LiczbaOfert,
-    SUM(
+    CAST(SUM(
         o.ilosc * o.cena *
         (1 - ISNULL(o.rabat, 0) / 100.0) *
         (1 + o.vat / 100.0)
-    ) AS WartoscSprzedazy
+    ) AS DECIMAL(18,2)) WartoscSprzedazy
 FROM dbo.Oferta o
 JOIN dbo.Sprzedawca sp
     ON o.Sprzedawca_ID_Sprzedawca = sp.ID_Sprzedawca
