@@ -16,11 +16,38 @@ BEGIN
 END
 GO
 
+IF (SELECT COUNT(*) FROM Samochód) < 3000
+BEGIN
+    SET NOCOUNT ON;
+    
+    DECLARE @i INT = (SELECT ISNULL(MAX(ID_Samochód), 0) + 1 FROM Samochód); 
+    DECLARE @max INT = @i + 3000;
+
+    -- BEGIN TRAN sprawia, że wszystko ładuje się do RAMu i zapisuje błyskawicznie!
+    BEGIN TRAN; 
+    WHILE @i <= @max
+    BEGIN
+        INSERT INTO Samochód (ID_Samochód, Model, Wersja, Cena, Rok_Produkcji, Katalog_ID_Katalog)
+        VALUES (
+            @i, 
+            'Zwykly Model ' + CAST(@i AS VARCHAR), 
+            'Wersja ' + CAST(@i AS VARCHAR), 
+            100000, 
+            2020, 
+            1
+        );
+        SET @i = @i + 1;
+    END
+    COMMIT TRAN; 
+    
+    SET NOCOUNT OFF;
+    PRINT 'Gotowe! Baza jest pełna danych.';
+END
+GO
+
 -- DEMONSTRACJA INDEKSÓW KLASTROWYCH I NIEKLASTROWYCH
--- Indeks Klastrowy został już utworzony przez klucz główny (ID_Samochód) 
 EXEC sp_helpindex 'Samochód';
 
--- Indeks Nieklastrowy (Non-Clustered Index) na kolumnie Model
 IF EXISTS (SELECT name FROM sys.indexes WHERE name = 'IX_Samochod_Model')
     DROP INDEX IX_Samochod_Model ON Samochód;
 GO
@@ -33,15 +60,13 @@ GO
 SET STATISTICS IO ON;
 GO
 
--- PRZYKŁAD A: Wyszukiwanie po kolumnie BEZ INDEKSU
--- Tutaj silnik wykona 'Clustered Index Scan' (przeczyta całą tabelę).
+PRINT '--- PRZYKŁAD A: Wyszukiwanie bez indeksu ---';
 SELECT ID_Samochód, Model, Wersja 
 FROM Samochód 
 WHERE Wersja = 'Sport'; 
 GO
 
--- PRZYKŁAD B: Wyszukiwanie po kolumnie Z INDEKSEM (Model)
--- Tutaj silnik wykona 'Index Seek' (dotrze bezpośrednio do danych).
+PRINT '--- PRZYKŁAD B: Wyszukiwanie z indeksem ---';
 SELECT Model, Cena, Rok_Produkcji 
 FROM Samochód 
 WHERE Model = 'Audi A4';
