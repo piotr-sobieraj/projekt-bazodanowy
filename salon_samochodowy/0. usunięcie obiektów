@@ -193,3 +193,27 @@ GO
 IF OBJECT_ID(N'dbo.Salon', N'U') IS NOT NULL
     DROP TABLE dbo.Salon
 GO
+
+/* 
+=========================================================
+   DROP VIEWS
+========================================================= 
+*/
+
+IF OBJECT_ID('dbo.v_SprzedazIndeksowana', 'V') IS NOT NULL
+BEGIN
+    DROP VIEW dbo.v_SprzedazIndeksowana;
+END
+GO
+
+IF OBJECT_ID('dbo.v_SprzedazDzienna', 'V') IS NOT NULL
+BEGIN
+    DROP VIEW dbo.v_SprzedazDzienna;
+END
+GO
+
+IF OBJECT_ID('dbo.v_SprzedazSamochodow', 'V') IS NOT NULL
+BEGIN
+    DROP VIEW dbo.v_SprzedazSamochodow;
+END
+GO
